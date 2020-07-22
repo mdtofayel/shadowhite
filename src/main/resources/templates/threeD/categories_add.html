@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="threeD/fragments/resourceLinks :: head"></th:block>
+	<title>Admin | Badges</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+	<header th:include="threeD/fragments/header"></header>
+	<!-- Left side column. contains the logo and sidebar -->
+	<aside th:include="threeD/fragments/sidebar"></aside>
+
+	<!-- Full Width Column -->
+		<div class="content-wrapper">
+			<div class="container">
+				<!-- Content Header (Page header) -->
+				<section class="content-header">
+					<h1>
+						Main Categories
+					</h1>
+					<ol class="breadcrumb">
+						<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+						<li><a href="#">Categories</a></li>
+						<li class="active">Add new</li>
+					</ol>
+				</section>
+
+				<!-- Main content -->
+				<section class="content">
+
+					<div class="row">
+						<!-- left column -->
+						<!--<div class="col-md-6">-->
+							<!--&lt;!&ndash; general form elements &ndash;&gt;-->
+							<!--<div class="box box-success">-->
+								<!--<div class="box-header with-border">-->
+									<!--<h3 class="box-title">Add new Child Category</h3>-->
+								<!--</div>-->
+								<!--&lt;!&ndash; /.box-header &ndash;&gt;-->
+								<!--&lt;!&ndash; form start &ndash;&gt;-->
+								<!--<form role="form" th:action="@{/Admin/categories/save}" th:object="${categories}" method="post">-->
+									<!--<div class="box-body">-->
+										<!--<input type="hidden" th:field="*{id}">-->
+											<!--<div class="form-group col-sm-6">-->
+												<!--<select class="form-control" name="category">-->
+													<!--<option th:each="listOfCategories : ${listOfCategories}"-->
+															<!--th:value="${listOfCategories.name}"-->
+															<!--th:text="${listOfCategories.name}"-->
+													<!--&gt;Options</option>-->
+
+												<!--</select>-->
+											<!--</div>-->
+										<!--<div class="form-group col-sm-12">-->
+											<!--<label>Name</label> -->
+											<!--<input type="text" class="form-control" placeholder="Enter category" th:field="*{name}">-->
+										<!--</div>-->
+									 <!--</div>-->
+									<!--<div class="box-footer">-->
+										<!--<button type="submit" class="btn btn-primary">Submit</button>-->
+									<!--</div>-->
+								<!--</form>-->
+							<!--</div>-->
+						<!--</div>-->
+						<div class="col-md-6">
+							<!-- general form elements -->
+							<div class="box box-success">
+								<div class="box-header with-border">
+									<h3 class="box-title">Add new Parent Category</h3>
+								</div>
+								<!-- /.box-header -->
+								<!-- form start -->
+
+
+								<form role="form" th:action="@{/Admin/threeD/categories/saveParent}" th:object="${categories}" method="post">
+									<div class="box-body">
+										<input type="hidden" th:field="*{id}">
+
+										<div class="form-group col-sm-12">
+											<label>Name</label>
+											<input type="text" class="form-control" placeholder="Enter slug" th:field="*{name}">
+										</div>
+									</div>
+
+									<!--<div class="form-group col-sm-12">-->
+									<!--<select required aria-required="true" id="State" name="browsers" multiple="multiple">-->
+										<!--<label>Browsers</label>-->
+										<!--<option></option>-->
+										<!--<option value="Chrome">Google Chrome</option>-->
+										<!--<option value="firefox">Mozilla Firefox</option>-->
+										<!--<option value="safari">Safari</option>-->
+										<!--<option value="opera">Opera</option>-->
+										<!--<option value="sa">Internet Explorer</option>-->
+										<!--<option value="tas">UC Browser</option>-->
+										<!--<option value="vic">VIC</option>-->
+										<!--<option value="wa">WA</option>-->
+									<!--</select>-->
+									<!--</div>-->
+
+									<div class="form-group col-sm-12">
+										<label>Price</label>
+										<input type="text" class="form-control" placeholder="price" th:field="*{priceExtended}">
+									</div>
+
+									<div class="form-group col-sm-12">
+										<label>Multiple Price</label>
+										<input type="text" class="form-control" placeholder="multiple price" th:field="*{multiplePriceExtended}">
+									</div>
+
+									<div class="form-group col-sm-12">
+										<label>Extended Price</label>
+										<input type="text" class="form-control" placeholder="extended price" th:field="*{extendedPriceExtended}">
+									</div>
+										<label th:if="${checkUnique}" th:text="${checkUnique}"
+											   class="control-label col-bg-6" style="color: red"></label>
+										
+									<div class="box-footer">
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.container -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<div class="container">
+				<div class="pull-right hidden-xs">
+					<b>Version</b> 2.3.8
+				</div>
+				<strong>Copyright &copy; 2014-2016 <a
+					href="http://www.shadowhiteanimators.com/">Shadowhite Animators Limited</a>.
+				</strong> All rights reserved.
+			</div>
+			<!-- /.container -->
+		</footer>
+	</div>
+	<!-- ./wrapper -->
+	<th:block th:include="threeD/fragments/footer"></th:block>
+	</div>
+	<th:block th:include="threeD/fragments/resourceLinks :: footer"></th:block>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="theme/fragments/resourceLinks :: head"></th:block>
+	<!-- DataTables -->
+	<link rel="stylesheet"
+		  th:href="@{/admin/plugins/datatables/dataTables.bootstrap.css}">
+	<title>Admin | Compatible Browsers</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+	<header th:include="theme/fragments/header"></header>
+	<!-- Left side column. contains the logo and sidebar -->
+	<aside th:include="theme/fragments/sidebar"></aside>
+
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+
+
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				Compatible Browsers
+			</h1>
+			<ol class="breadcrumb">
+				<th>Id</th>
+				<th>Browser Name</th>
+				<th>Action</th>
+			</ol>
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="box">
+						<div class="box-header">
+							<a th:href="@{/Admin/theme/compatableBrowsers/browsersAdd}" class="btn btn-primary"><span
+									class="fa fa-plus"></span> Add New</a>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<table id="example1" class="table table-bordered table-striped">
+								<thead>
+								<tr>
+									<th>Id</th>
+									<th>Compatible Browsers Name</th>
+									<th>Action</th>
+								</tr>
+								</thead>
+								<tbody>
+
+
+								<tr	th:each="listOfCompatableBrowsers : ${listOfCompatableBrowsers}">
+
+									<td
+											th:text="${listOfCompatableBrowsers.id != null ? listOfCompatableBrowsers.id : 'Not Found'}"></td>
+									<td
+											th:text="${listOfCompatableBrowsers.name != null ? listOfCompatableBrowsers.name : 'Not Found'}"></td>
+
+									<td><a th:if="${listOfCompatableBrowsers.status=='INACTIVE'}"
+										   th:href="@{'/Admin/theme/compatableBrowsers/update/'+${listOfCompatableBrowsers.id}}"
+										   th:field="*{name}" class="btn btn-default">ACTIVE</a> &nbsp; <a th:if="${listOfCompatableBrowsers.status=='ACTIVE'}"
+																										   th:href="@{'/Admin/theme/compatableBrowsers/update/'+${listOfCompatableBrowsers.id}}"
+																										   class="btn btn-default" onclick="return confirm('Are you sure to delte this?')">INACTIVE</a></td>
+								</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<!-- /.box-body -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /.content -->
+
+
+	</div>
+
+	<th:block th:include="theme/fragments/footer"></th:block>
+</div>
+<th:block th:include="theme/fragments/resourceLinks :: footer"></th:block>
+<!-- DataTables -->
+<script th:src="@{/admin/plugins/datatables/jquery.dataTables.min.js}"></script>
+<script
+		th:src="@{/admin/plugins/datatables/dataTables.bootstrap.min.js}"></script>
+<script>
+    $(function() {
+        $('#example1').DataTable({
+            "paging" : true,
+            "lengthChange" : false,
+            "searching" : true,
+            "ordering" : true,
+            "info" : true,
+            "autoWidth" : true
+        });
+    });
+</script>
+</body>
+</html>

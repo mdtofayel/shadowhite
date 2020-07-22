@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="threeD/fragments/resourceLinks :: head"></th:block>
+
+<title>Admin | Theme</title>
+<!--  My work start from here -->
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+		<header th:include="threeD/fragments/header"></header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside th:include="threeD/fragments/sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h2>User Info</h2>
+			</section>
+			<section class="content">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box box-widget widget-user">
+							<!-- Add the bg color to the header using any of the bg-* classes -->
+							<div class="widget-user-header bg-aqua-active">
+								<h3 class="widget-user-username" th:text="*{user.name}">Alexander
+									Pierce</h3>
+								<h5 class="widget-user-desc">Founder &amp; CEO</h5>
+							</div>
+							<div class="widget-user-image">
+								<img class="img-circle" src="../dist/img/user1-128x128.jpg"
+									alt="User Avatar">
+							</div>
+							<div class="box-footer">
+								<div class="row">
+									<div class="col-sm-4 border-right">
+										<div class="description-block">
+
+											<span class="description-text" th:text="*{user.userName}">SALES</span>
+										</div>
+										<!-- /.description-block -->
+									</div>
+									<!-- /.col -->
+									<div class="col-sm-4 border-right">
+										<div class="description-block">
+											<span class="description-text" th:text="*{user.email}">FOLLOWERS</span>
+										</div>
+										<!-- /.description-block -->
+									</div>
+									<!-- /.col -->
+									<div class="col-sm-4">
+										<div class="description-block">
+											<span class="description-text"
+												th:text="*{user.userProfileInfo.country}">PRODUCTS</span>
+										</div>
+										<!-- /.description-block -->
+									</div>
+									<!-- /.col -->
+								</div>
+								<!-- /.row -->
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="box">
+							<div class="row">
+								<div class="col-md-offset-3 col-md-6">
+									<table class="table table-condensed">
+										<tbody>
+											<tr>
+												<th>Company Name</th>
+												<td th:text="*{user.userProfileInfo.companyName}"></td>
+											</tr>
+											<tr>
+												<th>Phone No</th>
+												<td th:text="*{user.userProfileInfo.phoneNumber}"></td>
+											</tr>
+											<tr>
+												<th>Address One</th>
+												<td th:text="*{user.userProfileInfo.addressOne}"></td>
+											</tr>
+											<tr>
+												<th>Address Two</th>
+												<td th:text="*{user.userProfileInfo.addressTwo}"></td>
+											</tr>
+											<tr>
+												<th>City</th>
+												<td th:text="*{user.userProfileInfo.city}"></td>
+											</tr>
+
+											<tr>
+												<th>State</th>
+												<td th:text="*{user.userProfileInfo.state}"></td>
+											</tr>
+											<tr>
+												<th>Status</th>
+												<td th:text="${user.active==0} ? 'Inactive' : 'Active'"></td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<th:block th:include="threeD/fragments/footer"></th:block>
+	</div>
+	<th:block th:include="threeD/fragments/resourceLinks :: footer"></th:block>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script th:src="@{/admin/js/pages/dashboard.js}"></script>
+</body>
+</html>

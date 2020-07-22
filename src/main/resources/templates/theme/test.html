@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:beans="http://jboss.org/xml/ns/javax/validation/mapping" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<p>Before the script...</p>
+
+
+
+<p>...After the script.</p>
+
+<form>
+    <input type="button" value="click" onclick="msg()"/>
+</form>
+
+
+
+<script th:src="@{/admin/js/js_test.js}"></script>
+
+</body>
+</html>

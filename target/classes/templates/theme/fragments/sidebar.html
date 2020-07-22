@@ -1,0 +1,88 @@
+<aside class="main-sidebar" xmlns:th="http://www.thymeleaf.org">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+		<!-- Sidebar user panel -->
+		<div class="user-panel">
+			<div class="pull-left image">
+				<img class="img-circle"
+					alt="User Image">
+			</div>
+			<div class="pull-left info">
+				<p th:text="${user}"></p>
+				<a href="#"><i class="fa fa-circle text-success"></i>Online</a>
+			</div>
+		</div>
+
+		<ul class="sidebar-menu">
+			<li class="header">MAIN NAVIGATION</li>
+			<li class="treeview"><a th:href="@{/Admin/theme/user/info}">
+					<i class="fa fa-dashboard"></i> <span>User Information</span>
+			</a></li>
+
+
+			<li class="treeview"><a th:href="@{/Admin/theme/digitalItems/approvedinfo}"> <i
+					class="fa fa-dashboard"></i> <span>Approval Request</span>
+			</a></li>
+
+			<li class="treeview"><a th:href="@{/Admin/theme/digitalItems/published}"> <i
+					class="fa fa-dashboard"></i> <span>Published</span>
+			</a></li>
+
+			<li class="treeview"><a th:href="@{/Admin/theme/digitalItems/rejectinfo}"> <i
+					class="fa fa-dashboard"></i> <span>Reject List</span>
+			</a></li>
+
+
+			<li class="treeview"><a th:href="@{/Admin/theme/digitalItems/userfeedback}"> <i
+					class="fa fa-dashboard"></i> <span>User Feedback</span>
+			</a></li>
+
+
+			<li class="treeview"><a th:href="@{/Admin/theme/user/userRoll}"> <i
+					class="fa fa-dashboard"></i> <span>User Role And Permission</span>
+			</a></li>
+
+			<li class="treeview"><a th:href="@{/Admin/theme/digitalItems/soldItems}"> <i
+					class="fa fa-dashboard"></i> <span>Sold Items</span>
+			</a></li>
+
+
+			<li class="treeview"><a th:href="@{/Admin/theme/digitalItems/paymentDetails}"> <i
+					class="fa fa-dashboard"></i> <span>Payment Details</span>
+			</a></li>
+
+			<li class="treeview"><a href="#"> <i class="fa fa-cog"></i>
+					<span>Site Management</span> <span class="pull-right-container"> <i
+						class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+				<ul class="treeview-menu">
+					<!--<li><a th:href="@{/Admin/badges}"><i-->
+							<!--class="fa fa-circle-o"></i> Badge</a></li>-->
+					<li><a th:href="@{/Admin/theme/categories/showcategories}"><i
+							class="fa fa-circle-o"></i> Categories</a></li>
+					<li><a th:href="@{/Admin/theme/compatableBrowsers/showBrowsers}"><i
+							class="fa fa-circle-o"></i> Compatible Browsers</a></li>
+					<li><a th:href="@{/Admin/theme/compatiblewith/showcompatiblewith}"><i
+							class="fa fa-circle-o"></i> Compatible with</a></li>
+					<!--<li><a th:href="@{/admin/digitalItems/showdigitalitems}"><i-->
+							<!--class="fa fa-circle-o"></i> Digital Items</a></li>-->
+					<li><a th:href="@{/Admin/theme/fileincluded/showfileincluded}"><i
+							class="fa fa-circle-o"></i> File Include</a></li>
+					<li><a th:href="@{/Admin/theme/frameworks/showframework}"><i
+							class="fa fa-circle-o"></i> Framework</a></li>
+					<li><a
+						th:href="@{/Admin/theme/softwareversions/showsoftwareversion}"><i
+							class="fa fa-circle-o"></i> Software version</a></li>
+				</ul></li>
+
+			<li class="treeview"><a th:href="@{/logout}"> <i
+					class="fa fa-dashboard"></i> <span>Log out</span>
+			</a></li>
+
+
+		</ul>
+	</section>
+	<!-- /.sidebar -->
+</aside>
+<th:block th:include="theme/fragments/control_sidebar"></th:block>

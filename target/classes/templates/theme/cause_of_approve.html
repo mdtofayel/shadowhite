@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="theme/fragments/resourceLinks :: head"></th:block>
+
+    <title>Admin | Theme</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <header th:include="theme/fragments/header"></header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside th:include="theme/fragments/sidebar"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <form class="form-horizontal" role="form"
+        th:action="@{'/Admin/theme/digitalItems/causeOfApprove'}" method="post" enctype="multipart/form-data">
+
+
+
+            <!--<a th:text="${digitalItem.id}"></a>-->
+        <input name="id" type="hidden" th:field="${digitalItem.id}"/>
+
+        <div class="panel panel-default">
+        <div class="panel-heading">Type Your message</div>
+        <div class="panel panel-default">
+        <div class="panel-body">
+        <div class="form-group">
+        <div class="col-sm-9">
+        <textarea rows="5" class="form-control" name="message">
+
+        </textarea>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="panel-footer text-right">
+        <button type="submit" class="button_green">Save</button>
+        </div>
+        </form>
+
+
+
+    </div>
+
+    <th:block th:include="theme/fragments/footer"></th:block>
+</div>
+<th:block th:include="theme/fragments/resourceLinks :: footer"></th:block>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script th:src="@{/admin/js/pages/dashboard.js}"></script>
+</body>
+</html>
+
+
+
+
+<!--<form class="form-horizontal" role="form"-->
+      <!--th:action="@{'/Admin/digitalItems/causeOfApprove'}" method="post" enctype="multipart/form-data">-->
+
+
+    <!--&lt;!&ndash;<input name="id" type="hidden" th:field="${digitalItem.id}"/>&ndash;&gt;-->
+
+    <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">Type Your message</div>-->
+        <!--<div class="panel panel-default">-->
+            <!--<div class="panel-body">-->
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-9">-->
+                                            <!--<textarea rows="5" class="form-control" name="message">-->
+
+                                            <!--</textarea>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="panel-footer text-right">-->
+        <!--<button type="submit" class="button_green">Send</button>-->
+    <!--</div>-->
+<!--</form>-->

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Digital Item Management</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+
+<body>
+
+
+	<div class="container">
+
+
+		<div class="panel panel-default">
+			<th:block th:include="threeD/fragments/link_pages :: link"></th:block>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Status</th>
+						<th>Date</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="listOfDigitalItems : ${listOfDigitalItems}">
+						<td
+							th:text="${listOfDigitalItems.name != null ? listOfDigitalItems.name : 'Not Found'}">
+						</td>
+						<td
+							th:text="${listOfDigitalItems.status != null ? listOfDigitalItems.status : 'Not Found'}">
+						</td>
+						<td
+							th:text="${listOfDigitalItems.created != null ? listOfDigitalItems.created : 'Not Found'}">
+						</td>
+						<td>
+							<form class="form-horizontal" role="form"
+							th:action="@{'/Admin/threeD/digitalItems/edit/'+${listOfDigitalItems.id}}" method="post" enctype="multipart/form-data">
+												<div class="col-sm-9">
+													<select class="form-control" name="productStatus">
+														<option value="PUBLISHED">Publised</option>
+														<option value="REJECTED">Rejected</option>
+														<option value="PENDING">Pending</option>
+														<option value="UPLOADED">Uploaded</option>
+													</select>
+												</div>
+								<div class="text-right">
+									<button type="submit" class="button_green">Action</button>
+								</div>
+							</form>
+							</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>
+

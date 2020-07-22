@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+	<div class="container">
+
+
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">
+				<div class="col-sm-6">
+					<span class="lead">List Tags</span>
+				</div>
+				<div class="col-sm-6" class="text-right">
+					<a th:href="@{/Admin/threeD/tags/tagsAdd}"
+						class="btn btn-success"><span
+						class="glyphicon glyphicon-plusgit"></span> Add</a>
+				</div>
+			</div>
+			<th:block th:include="threeD/fragments/link_pages :: link"></th:block>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Tags</th>
+						<th>Action</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="listOfTags : ${listOfTags}">
+
+						<td
+							th:text="${listOfTags.id != null ? listOfTags.id : 'Not Found'}"></td>
+						<td
+							th:text="${listOfTags.name != null ? listOfTags.name : 'Not Found'}"></td>
+						<td><a
+							th:href="@{'/Admin/threeD/tags/update/'+${listOfTags.id}}"
+							th:field="*{name}" class="btn btn-primary">edit</a> &nbsp; <a
+							th:href="@{'/Admin/threeD/tags/delete/'+${listOfTags.id}}"
+							class="btn btn-danger">delete</a></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
